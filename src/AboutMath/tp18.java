@@ -37,11 +37,50 @@ public class tp18 {
         }
     }
 
+    /*
+    回溯剪枝
+     */
+    void findNum(int[] nums, int target, int N, List<Integer> tmp, List<List<Integer>> ans){
+        if (nums.length < N || N < 2) return ;
+        if (N == 2){
+            int l = 0, r = nums.length -1;
+            while(l < r){
+                if (nums[l] + nums[r] == target) {
+                    List<Integer> bufList = new ArrayList<>(tmp);
+                    bufList.add(nums[l]);
+                    bufList.add(nums[r]);
+                    ans.add(bufList);
+                    l += 1;
+                    r -= 1;
+                    while (l < r && nums[l] == nums[l - 1])
+                        l += 1;
+                    while (r > l && nums[r] == nums[r + 1])
+                        r -= 1;
+                }
+                else if (nums[l] + nums[r] < target) l += 1;
+                else r -= 1;
+            }
+        } else {
+            for (int i = 0; i < nums.length; i++)
+                if (i == 0 || i > 0 && nums[i - 1] != nums[i]) {
+                    int[] buf_nums = new int[nums.length - i - 1];
+                    for (int j = i + 1; j < nums.length; j++)
+                        buf_nums[j - i - 1] = nums[j];
+                    List<Integer> bufList = new ArrayList<>(tmp);
+                    bufList.add(nums[i]);
+                    findNum(buf_nums, target - nums[i], N - 1,
+                            bufList, ans);
+                }
+            }
+        }
+
+
     public List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> tmp = new ArrayList<>();
         HashSet hashSet = new HashSet();
         bfs(nums, target, tmp, ans, hashSet, 0);
+        findNum(nums, target, 4, tmp, ans);
         return ans;
     }
 }

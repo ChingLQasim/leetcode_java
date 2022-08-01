@@ -10,7 +10,7 @@ public class tp680 {
         }
     }
 
-    public boolean judPali(String s, int l, int r){
+    boolean judPali(String s, int l, int r){
         if (s.length() == 1) return true;
         while(l < r){
             if (s.charAt(l) != s.charAt(r)) {

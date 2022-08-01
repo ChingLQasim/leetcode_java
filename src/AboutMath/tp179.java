@@ -33,7 +33,7 @@ public class tp179 {
         }
         return index < 0 ? ans : ans.substring(index, ans.length());
     }
-    public class StringComparator implements Comparator<String> {
+     class StringComparator implements Comparator<String> {
         /**
          * 重写比较函数
          */

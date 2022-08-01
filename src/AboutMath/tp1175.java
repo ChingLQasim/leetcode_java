@@ -20,7 +20,7 @@ public class tp1175 {
         return (int)(factorial((long)primes) % 1000000007 *(factorial((long)n - (long)primes) % 1000000007) % 1000000007);
     }
 
-    public boolean judPrimes(int n){
+    boolean judPrimes(int n){
         if(n % 2 == 0) return false;
         for (int i = 3; i <= n / i; i+=2) {
             if (i != n && n % i == 0){
@@ -30,7 +30,7 @@ public class tp1175 {
         return true;
     }
 
-    public long factorial(long n){
+    long factorial(long n){
         return n == 1 ? 1 : ((long)factorial(n - 1) % 1000000007) * (n % 1000000007) % 1000000007;
     }
 }

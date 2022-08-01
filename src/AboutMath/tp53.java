@@ -10,7 +10,7 @@ public class tp53 {
     /*
     动态规划
      */
-    public int dp(int[] nums){
+    int dp(int[] nums){
         int maxSum = nums[0];
         int[] curSA = new int[nums.length];
         curSA[0] = nums[0];
@@ -23,7 +23,7 @@ public class tp53 {
     /*
     前缀和
      */
-    public int prefixSum(int[] nums){
+    int prefixSum(int[] nums){
         int max = nums[0], min = 0, sum = 0;
         for (int i = 1; i < nums.length; i++) {
             sum += nums[i];

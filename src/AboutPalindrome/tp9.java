@@ -26,18 +26,17 @@ public class tp9 {
     直接处理数字
      */
     boolean isPalindrome2(int x){
-        int ans  = 0 , len = 1;
+        int ans  = 0 , len = 1, ori = x;
         if (x < 0) return false;
         else if (x < 10) return true;
         else if (x % 10 == 0) return false;
         while (x > 0)
         {
-            ans *= len;
+            ans *= 10;
             ans += x % 10 ;
-            len *= 10;
             x /= 10;
         }
-        return ans == x;
+        return ans == ori;
     }
 
 }

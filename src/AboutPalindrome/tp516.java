@@ -7,17 +7,23 @@ package AboutPalindrome;
 public class tp516 {
     public int longestPalindromeSubseq(String s) {
         int ans = 0, len = s.length();
-        int dp[][] = new int[len + 1][len + 1];
+        int dp[] = new int[len + 1];
+        for (int i = 0; i < len + 1; i++) {
+            dp[i] = 1;
+        }
         for (int i = len - 1; i >=0; i--) {
+            dp[i]= 1;
+            int pre = 0;
             for (int j = i; j < len; j++) {
-                if(i == j) dp[i][j] += 1;
-                else if (s.charAt(i) == s.charAt(j)){
-                    dp[i][j] = dp[i + 1][j-1] + 2;
+                int temp = dp[j - 1];
+                if (s.charAt(i) == s.charAt(j)){
+                    dp[j] = pre+ 2;
                 }else {
-                    dp[i][j] = Math.max(dp[i+1][j], dp[i][j - 1]);
+                    dp[j] = Math.max(dp[j], dp[j - 1]);
                 }
+                pre = temp;
             }
         }
-        return dp[0][len - 1];
+        return dp[len - 1];
     }
 }

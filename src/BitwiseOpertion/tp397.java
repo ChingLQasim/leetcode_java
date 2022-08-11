@@ -33,7 +33,6 @@ public class tp397 {
                 n -= 1;
             count++;
         }
-
         return n == 3 ? count + 2 : count + 1; // 处理 n==3 的特殊情况
     }
 }

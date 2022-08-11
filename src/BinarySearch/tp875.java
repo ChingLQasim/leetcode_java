@@ -1,4 +1,4 @@
-package DoublePointer;
+package BinarySearch;
 
 import java.util.Arrays;
 

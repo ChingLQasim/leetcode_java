@@ -1,4 +1,4 @@
-package DoublePointer;
+package BinarySearch;
 /*
 给你一个非负整数 x ，计算并返回x的 算术平方根 。
 

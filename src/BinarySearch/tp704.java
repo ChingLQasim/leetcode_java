@@ -1,4 +1,4 @@
-package DoublePointer;
+package BinarySearch;
 
 /*
 给定一个n个元素有序的（升序）整型数组nums和一个目标值target ，
